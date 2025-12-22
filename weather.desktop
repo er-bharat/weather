@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=weather
+GenericName=weather app
+Comment=get weather data
+Exec=/home/bharat/Documents/martian/Win8/metroapps/Weather/build/Weather
+Icon=/home/bharat/Documents/martian/Win8/metroapps/Weather/Weather.svg
+Terminal=false
+Categories=Network;Weather;
+StartupNotify=true
+# Startup   WMClass=weather
