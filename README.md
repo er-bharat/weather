@@ -1,4 +1,4 @@
-# iNTRO
+# Intro
 weather app for linux built in c++ and qml it is styled as borderless window to be used in desk displays and like metro app 
 main focus was aqi display
 it uses openweather api you will have to create your own api in openweather (it gives free personal use.)
