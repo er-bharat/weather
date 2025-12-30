@@ -34,7 +34,7 @@ Window {
             // ---- City ----
             Item {
                 width: parent.width
-                height: 64
+                height: 62
 
                 Row {
                     spacing: 12
