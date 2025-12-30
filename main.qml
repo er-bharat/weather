@@ -36,43 +36,60 @@ Window {
                 width: parent.width
                 height: 64
 
-                Text {
-                    visible: !editingCity
-                    text: Weather.city || "Tap to set city"
-                    color: "white"
-                    font.pixelSize: 48
-                    font.family: "Segoe UI"
-                    font.weight: Font.Light
+                Row {
+                    spacing: 12
+                    anchors.verticalCenter: parent.verticalCenter
 
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: {
-                            editingCity = true;
-                            cityEdit.text = Weather.city;
-                            cityEdit.forceActiveFocus();
+                    Image {
+                        source: "beacon.svg"   // or qrc:/icons/beacon.svg
+                        width: 62
+                        height: 62
+                        sourceSize.width: 62
+                        sourceSize.height: 62
+                        fillMode: Image.PreserveAspectFit
+                    }
+
+                    Text {
+                        visible: !editingCity
+                        text: Weather.city || "Tap to set city"
+                        color: "white"
+                        font.pixelSize: 48
+                        font.family: "Segoe UI"
+                        font.weight: Font.Light
+                        verticalAlignment: Text.AlignVCenter
+
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                editingCity = true
+                                cityEdit.text = Weather.city
+                                cityEdit.forceActiveFocus()
+                            }
                         }
                     }
-                }
 
-                TextInput {
-                    id: cityEdit
-                    visible: editingCity
-                    width: parent.width
-                    color: "white"
-                    font.pixelSize: 48
-                    font.family: "Segoe UI"
-                    font.weight: Font.Light
-                    cursorVisible: true
-                    selectionColor: "#55ffffff"
+                    TextInput {
+                        id: cityEdit
+                        visible: editingCity
+                        width: parent.width - 44
+                        color: "white"
+                        font.pixelSize: 48
+                        font.family: "Segoe UI"
+                        font.weight: Font.Light
+                        cursorVisible: true
+                        selectionColor: "#55ffffff"
+                        verticalAlignment: Text.AlignVCenter
 
-                    onAccepted: {
-                        editingCity = false;
-                        Weather.fetch(text);
+                        onAccepted: {
+                            editingCity = false
+                            Weather.fetch(text)
+                        }
+
+                        Keys.onEscapePressed: editingCity = false
                     }
-
-                    Keys.onEscapePressed: editingCity = false
                 }
             }
+
 
             // ---- Temperature + Info ----
             Row {
